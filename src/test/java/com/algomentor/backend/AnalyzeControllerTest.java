@@ -1,6 +1,5 @@
 package com.algomentor.backend;
 
-import com.fasterxml.jackson.databind.ObjectMapper;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.autoconfigure.web.servlet.WebMvcTest;
@@ -20,8 +19,6 @@ class AnalyzeControllerTest {
     @MockBean
     private AnalyzeService service;
 
-    @Autowired
-    private ObjectMapper om;
 
     @Test
     void missingSolution_returns400() throws Exception {
@@ -37,4 +34,21 @@ class AnalyzeControllerTest {
                         .content(body))
                 .andExpect(status().isBadRequest());
     }
+
+    @Test
+    void invalidMode_returns400() throws Exception {
+        String body = """
+        {
+          "language": "java",
+          "solution": "class Solution {}",
+          "mode": "expert"
+        }
+        """;
+
+        mvc.perform(post("/api/analyze")
+                        .contentType(MediaType.APPLICATION_JSON)
+                        .content(body))
+                .andExpect(status().isBadRequest());
+    }
+
 }
