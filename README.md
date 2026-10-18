@@ -19,7 +19,7 @@ before it reaches a caller, so the API contract holds even when the model misbeh
 - [API reference](#api-reference) · [Configuration](#configuration)
 - [Testing](#testing) · [Extending it](#extending-it)
 - [Design decisions](#design-decisions) · [Contributing](#contributing)
-- [Troubleshooting](#troubleshooting)
+- [Troubleshooting](#troubleshooting) · [License](#license)
 
 ---
 
@@ -440,6 +440,12 @@ more capable `openai.model`; check the logs for the raw text it returned.
 
 **CORS errors from the frontend.** Add its exact origin to `APP_CORS_ALLOWED_ORIGINS` and
 restart. Vite silently moves to `:5174` when `:5173` is taken, which is the usual cause.
+
+---
+
+## License
+
+MIT — see [LICENSE](LICENSE).
 
 ---
 

@@ -34,3 +34,7 @@ build/
 
 .env
 .env.local
+
+### Build output and OS files ###
+out/
+.DS_Store
